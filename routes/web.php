@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CobaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/coba', function () {
-    return view('coba');
-});
-
-Route::get('/coba/{no}', 'App\Http\Controllers\CobaController@coba');
-
-Route::get('/test', 'App\Http\Controllers\CobaController@index');
-Route::get('/test/{ke}', 'App\Http\Controllers\CobaController@urutan');
+Route::get('', [CobaController::class, 'index']);
+Route::get('/friends', [CobaController::class, 'index']);
+Route::get('/friends/create', [CobaController::class, 'create']);
+Route::post('/friends', [CobaController::class, 'store']);
