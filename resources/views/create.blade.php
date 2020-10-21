@@ -4,7 +4,7 @@
 
 @section('content')
   <form action="/friends" method="POST">
-  @csrf
+
     <div class="form-group">
       <label for="exampleInputEmail1">Nama</label>
       <input type="text" class="form-control" id="exampleInputEmail1" name="nama" aria-describedby="emailHelp">
