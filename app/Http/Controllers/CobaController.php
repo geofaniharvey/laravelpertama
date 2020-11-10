@@ -40,16 +40,16 @@ class CobaController extends Controller
 
     public function show($id)
     {
-        $friends = Friends::where('id', $id)->first();
+        $friend = Friends::where('id', $id)->first();
        
-        return view('friends.show', ['friends' => $friends]);
+        return view('friends.show', ['friend' => $friend]);
     }
 
     public function edit($id)
     {
-        $friends = Friends::where('id', $id)->first();
+        $friend = Friends::where('id', $id)->first();
        
-        return view('friends.edit', ['friends' => $friends]);
+        return view('friends.edit', ['friend' => $friend]);
     }
 
     public function update(Request $request, $id)

@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Friends extends Model
+class Groups extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['nama'];
+    protected $guarded = ['name'];
 
-    public function groups()
+
+    public function friends()
     {
-        return $this->belongsTo('App\Models\Groups');
+        return $this->hasMany('App\Models\Friends');
     }
 }
