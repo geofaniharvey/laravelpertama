@@ -64,6 +64,14 @@ class GroupsController extends Controller
         $group = Groups::where('id', $id)->first();
        
         return view('groups.show', ['group' => $group]);
+
+        $group = Groups::where('id', $id)->first();
+    
+        return response()->json([
+            'success' => true,
+            'message' => 'Group Description',
+            'data'    => $group
+        ], 200);
     }
 
     /**
@@ -98,6 +106,17 @@ class GroupsController extends Controller
             'description' => $request->description
         ]);
 
+        $groupupdt = Groups::find($id)->update([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Post Updated',
+            'data'    => $groupupdt
+        ], 200);
+
         return redirect('/groups');
     }
 
@@ -111,6 +130,13 @@ class GroupsController extends Controller
     {
         Groups::find($id)->delete();
         return redirect('/groups');
+
+        $groupdel = Groups::find($id)->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Group Deleted',
+            'data'    => $groupdel
+        ], 200);
     }
 
     public function addmember($id)
